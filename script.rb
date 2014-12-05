@@ -20,6 +20,15 @@
 #   :params   => Object,  - OPTIONAL: Any object you wish to pass to the :method
 # )
 #
+# Example
+# =======
+# TDD::Timer.call_after_frames(
+#   :frames   => 60,
+#   :observer => self,
+#   :method   => :play_ding_dong_sfx,
+#   :params   => {ding: dong}
+# )
+#
 # You can pass the above params in any order you wish, and :params can be
 # omitted.
 #
