@@ -46,6 +46,9 @@ module TDD
 class Timer
   @@timers = []
   class << self
+    #--------------------------------------------------------------------------
+    # * Call After Frames
+    #--------------------------------------------------------------------------
     def call_after_frames(args={})
       timer_object = {
         :observer => nil,
@@ -61,6 +64,9 @@ class Timer
       @@timers.push(timer_object)
     end
 
+    #--------------------------------------------------------------------------
+    # * Frame Update Call
+    #--------------------------------------------------------------------------
     def update
       @@timers.each do |timer_object|
         if timer_object[:frames] > 0
@@ -82,6 +88,14 @@ class Timer
   end
 end
 end
+#==============================================================================
+# Scene_Base extensions
+#------------------------------------------------------------------------------
+# Extends update_basic to call the TDD::Timer.update method once per frame
+#------------------------------------------------------------------------------
+# aliases:
+# * :tdd_timer_scene_update_basic_extension, :update_basic
+#==============================================================================
 class Scene_Base
   #--------------------------------------------------------------------------
   # * ALIAS Frame Update
