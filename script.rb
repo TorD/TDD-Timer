@@ -1,9 +1,13 @@
 #==============================================================================
 # ** TDD::Timer
 #------------------------------------------------------------------------------
-# Version:  1.0.0
+# Version:  1.0.1
 # Date:     06/12/2014
 # Author:   Galenmereth / Tor Damian Design
+# 
+# Changelog
+# =========
+# * 1.0.1 - Added * operand for any type of parameter passing.
 #
 # Description
 # ===========
@@ -75,7 +79,7 @@ class Timer
         else
           # Call method with params if no more frames to count down
           if timer_object[:params]
-            timer_object[:observer].send(timer_object[:method], timer_object[:params])
+            timer_object[:observer].send(timer_object[:method], *timer_object[:params])
           else
             timer_object[:observer].send(timer_object[:method])
           end
